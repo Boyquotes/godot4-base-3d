@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://wdc8myjmxb4n"]
+[gd_scene load_steps=8 format=3 uid="uid://wdc8myjmxb4n"]
 
-[ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_w4y71"]
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_up030"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qqkex"]
 
@@ -8,6 +8,15 @@
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xnla1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8s43s"]
+
+[sub_resource type="Sky" id="Sky_n8onq"]
+sky_material = SubResource("ProceduralSkyMaterial_8s43s")
+
+[sub_resource type="Environment" id="Environment_xu1nb"]
+background_mode = 2
+sky = SubResource("Sky_n8onq")
 
 [node name="Node3D" type="Node3D"]
 
@@ -21,7 +30,7 @@ mesh = SubResource("PlaneMesh_qqkex")
 shape = SubResource("ConcavePolygonShape3D_vxrco")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-script = ExtResource("1_w4y71")
+script = ExtResource("1_up030")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16596, 0)
@@ -31,6 +40,7 @@ shape = SubResource("CapsuleShape3D_xnla1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26875, 1.84767)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xu1nb")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3192, 3.40835, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0399778, 3.40835, 2.5414)
